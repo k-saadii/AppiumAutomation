@@ -17,7 +17,7 @@ public class AppiumController {
 	public static AppiumDriver<MobileElement> driver;
 	
 	
-	@SuppressWarnings("unchecked")
+	
 	public void setUp() throws MalformedURLException
 	{
 		  File appDir = new File("");
