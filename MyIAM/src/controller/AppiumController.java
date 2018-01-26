@@ -1,37 +1,23 @@
 package controller;
 
-import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AppiumController {
 
-	public static AppiumDriver<MobileElement> driver;
-	
-	
-	
-	public void setUp() throws MalformedURLException
-	{
-		  File appDir = new File("");
-	        File app = new File(appDir, "");
-	        DesiredCapabilities capabilities = new DesiredCapabilities();
-	        capabilities.setCapability("device","Android");
+	public static WebDriver driver;
+	public static AppiumController instance = new AppiumController();
 
-	        //mandatory capabilities
-	        capabilities.setCapability("deviceName","Android");
-	        capabilities.setCapability("platformName","Android");
+	public void start() throws MalformedURLException {
+		String driverPath = "/Users/saadkhan/Downloads/";
+		System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
+		if (driver != null) {
+			return;
+		}
+		driver = new ChromeDriver();
+		driver.get("https://www.google.com");
 
-	        //other caps
-	        capabilities.setCapability("app", app.getAbsolutePath());
-	        driver =  new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-     
 	}
 }
