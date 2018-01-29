@@ -1,6 +1,7 @@
 package controller;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +12,7 @@ public class AppiumController {
 	public static AppiumController instance = new AppiumController();
 
 	public void start() throws MalformedURLException {
-		String driverPath = "/Users/saadkhan/Downloads/";
+		String driverPath = "/Users/saintgobain/Downloads";
 		System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
 		if (driver != null) {
 			return;
@@ -19,7 +20,7 @@ public class AppiumController {
 		driver = new ChromeDriver();
 		driver.get("https://www.google.com");
 		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS );
+		driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS );
 		
 	}
 }
