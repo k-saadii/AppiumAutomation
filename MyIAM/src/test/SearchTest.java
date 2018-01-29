@@ -11,6 +11,7 @@ public class SearchTest extends BaseTest {
 	public void setUrl()
 	{
 	 System.out.println("Test Commit");	
+	 System.out.println("added new line of code");
 	}
 	
 }
